@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.xUnit.Typed", "src\FsUnit.xUnit.Typed\FsUnit.xUnit.Typed.fsproj", "{5989A766-A30E-4FE1-8BF7-DFD66C5A2947}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{BA514A1A-B506-4262-A440-0B047EEEB2AF}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
+	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.xUnit.Typed.Test", "tests\FsUnit.xUnit.Typed.Test\FsUnit.xUnit.Typed.Test.fsproj", "{6A0DA5D9-20BC-4EE5-A0F6-5B4B34204868}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5989A766-A30E-4FE1-8BF7-DFD66C5A2947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5989A766-A30E-4FE1-8BF7-DFD66C5A2947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5989A766-A30E-4FE1-8BF7-DFD66C5A2947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5989A766-A30E-4FE1-8BF7-DFD66C5A2947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A0DA5D9-20BC-4EE5-A0F6-5B4B34204868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A0DA5D9-20BC-4EE5-A0F6-5B4B34204868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A0DA5D9-20BC-4EE5-A0F6-5B4B34204868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A0DA5D9-20BC-4EE5-A0F6-5B4B34204868}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
