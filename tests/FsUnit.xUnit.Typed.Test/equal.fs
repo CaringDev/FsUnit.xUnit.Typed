@@ -22,7 +22,8 @@ let ``fails when reference non-equal``() =
     Assert.Throws<MatchException>(fun () ->
         obj() |> should equal (obj()))
 
-[<Fact>]
-let ``is typesafe``() =
-    "1 |> should equal 1.0"
-    |> shouldNotCompileBecause "This expression was expected to have type 'int' but here has type 'float'"
+module is =
+    [<Fact>]
+    let ``typesafe``() =
+        "1 |> should equal 1.0"
+        |> shouldNotCompileBecause "This expression was expected to have type 'int' but here has type 'float'"

@@ -2,38 +2,43 @@
 
 open Microsoft.FSharp.Compiler
 open Microsoft.FSharp.Compiler.SourceCodeServices
+open System
+open System.Reflection
 open System.Text.RegularExpressions
-open Xunit
 
 type Result =
-| Ok
+| Ok of Assembly
 | ParseError of string list
-| CheckError of string list
 | CompileError of string list
+
+let private checker = FSharpChecker.Create(keepAllBackgroundResolutions = true, msbuildEnabled = false)
+let private autoOpen = [ typedefof<Result>.Assembly.Location ]
+let whiteSpace = Regex(@"\s+", RegexOptions.Compiled)
 
 let private simplify =
     Seq.map (fun (e : FSharpErrorInfo) -> e.Message.Trim())
-    >> Seq.map (fun e -> Regex.Replace(e, @"\s+", " "))
+    >> Seq.map (fun e -> whiteSpace.Replace(e, " "))
     >> List.ofSeq
 
 let compile src =
-    let fn = "Tmp.fsx"
-    let checker = FSharpChecker.Create()
+    let fn, dll =
+        let guid = Guid.NewGuid().ToString()
+        sprintf "%s.fsx" guid, sprintf "%s.dll" guid
     async {
         let! projectOptions = checker.GetProjectOptionsFromScript(fn, src)
-        let! parseResults, checkResults = checker.ParseAndCheckFileInProject(fn, 0, src, projectOptions)
+        let! parseResults = checker.ParseFileInProject(fn, src, projectOptions)
         return
-            match parseResults.ParseTree, checkResults with
-            | Some tree, _ ->
-                match checker.CompileToDynamicAssembly([tree], "Tmp.dll", [ typedefof<Result>.Assembly.Location ], None, true) with
-                | [||], _, _ -> Ok
+            match parseResults.ParseTree with
+            | Some tree ->
+                match checker.CompileToDynamicAssembly([tree], dll, autoOpen, None) with
+                | [||], 0, Some assembly -> Ok assembly
                 | err, _, _ -> err |> simplify |> CompileError
-            | None, FSharpCheckFileAnswer.Succeeded(_) -> parseResults.Errors |> simplify |> ParseError
-            | None, FSharpCheckFileAnswer.Aborted -> [ string checkResults ] |> CheckError
-    } |> Async.RunSynchronously
+            | None -> parseResults.Errors |> simplify |> ParseError
+    }
 
 let shouldNotCompileBecause msg src =
-    match compile src with
-    | CompileError [e] -> Assert.Equal(msg, e)
-    | Ok -> failwith "Compiled"
+    let result = compile src |> Async.RunSynchronously
+    match result with
+    | CompileError [e] when msg = e -> ()
+    | Ok _ -> failwith "Compiled"
     | r -> failwithf "Did not compile due to wrong reason(s): %A" r
