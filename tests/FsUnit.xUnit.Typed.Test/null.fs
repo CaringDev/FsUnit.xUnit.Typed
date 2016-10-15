@@ -21,10 +21,11 @@ let ``fails when null not null``() =
     Assert.Throws<MatchException>(fun () ->
         null |> should (not' be) null)
 
-[<Fact>]
-let ``is typesafe``() =
-    "null |> should be 1.0"
-    |> shouldNotCompileBecause "This expression was expected to have type 'NHamcrest.IMatcher<'a>' but here has type 'float'"
+module is =
+    [<Fact>]
+    let ``typesafe``() =
+        "null |> should be 1.0"
+        |> shouldNotCompileBecause "This expression was expected to have type 'NHamcrest.IMatcher<'a>' but here has type 'float'"
 
 module ``equal`` =
 
@@ -46,7 +47,8 @@ module ``equal`` =
         Assert.Throws<MatchException>(fun () ->
             null |> should (not' equal) null)
 
-    [<Fact>]
-    let ``is typesafe``() =
-        "null |> should (not' equal) 1.0"
-        |> shouldNotCompileBecause "The type 'float' does not have 'null' as a proper value"
+    module is =
+        [<Fact>]
+        let ``typesafe``() =
+            "null |> should (not' equal) 1.0"
+            |> shouldNotCompileBecause "The type 'float' does not have 'null' as a proper value"
