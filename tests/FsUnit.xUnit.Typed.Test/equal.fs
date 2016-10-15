@@ -1,8 +1,7 @@
 ﻿module ``Equal``
 
 open Xunit
-open FsUnit.Xunit.Typed
-open Matchers
+open CompilerHelper
 
 [<Fact>]
 let ``succeeds when value equal``() =
@@ -22,3 +21,8 @@ let ``fails when value non-equal``() =
 let ``fails when reference non-equal``() =
     Assert.Throws<MatchException>(fun () ->
         obj() |> should equal (obj()))
+
+[<Fact>]
+let ``is typesafe``() =
+    "1 |> should equal 1.0"
+    |> shouldNotCompileBecause "This expression was expected to have type 'int' but here has type 'float'"

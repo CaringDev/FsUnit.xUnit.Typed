@@ -1,6 +1,8 @@
-﻿module FsUnit.Xunit.Typed
+﻿[<AutoOpen>]
+module FsUnit.Xunit.Typed
 
 open NHamcrest
+open NHamcrest.Core
 
 open Xunit.Sdk
 
@@ -9,11 +11,12 @@ type MatchException(expected, actual, userMessage) =
 
 let be = id
 
-let inline should (f : 'e -> IMatcher<_>) expected actual =
-    let matcher = f expected
-    if matcher |> isNull then
-        failwith "Did you mean to supply `Null`"
-    else if not  <| matcher.Matches actual then
+let inline should (f : 'e -> IMatcher<'a>) expected actual =
+    let matcher =
+        match f expected with
+        | null -> Is.Null<_>() : IMatcher<_>
+        | m -> m
+    if not  <| matcher.Matches actual then
         let description = StringDescription()
         matcher.DescribeTo description
         let mismatchDescription = StringDescription()

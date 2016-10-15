@@ -1,7 +1,13 @@
 FRAMEWORK: NET461
 NUGET
   remote: https://www.nuget.org/api/v2
+    FSharp.Compiler.Service (8.0)
+      System.Collections.Immutable (>= 1.2)
+      System.Reflection.Metadata (>= 1.4.1-beta-24227-04)
     NHamcrest (1.2.1)
+    System.Collections.Immutable (1.2)
+    System.Reflection.Metadata (1.4.1-beta-24430-01)
+      System.Collections.Immutable (>= 1.2)
     xunit (2.1)
       xunit.assert (2.1)
       xunit.core (2.1)
