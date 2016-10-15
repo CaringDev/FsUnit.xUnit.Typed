@@ -1,4 +1,5 @@
-﻿module Matchers
+﻿[<AutoOpen>]
+module FsUnit.Xunit.Matchers
 
 open NHamcrest
 open NHamcrest.Core
@@ -26,8 +27,7 @@ let failWith<'exn when 'exn :> exn> () =
         (sprintf "Expected exception of type %A" typeof<'exn>.FullName)
         (fun _ -> sprintf "Got %s" exnType)
 
-let not' (m : 'e -> IMatcher<_>) e =
-    Is.Not<'a>(m e) :> IMatcher<_>
-
-let Null<'a when 'a : null> () =
-    IsNull<'a>() :> IMatcher<_>
+let not' (m : 'e -> IMatcher<'a>) e =
+    match m e with
+    | null -> Is.NotNull<_>() : IMatcher<_>
+    | r -> Is.Not<'a>(r) :> IMatcher<_>

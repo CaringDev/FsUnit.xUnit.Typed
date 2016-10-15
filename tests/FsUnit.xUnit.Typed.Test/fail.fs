@@ -1,8 +1,6 @@
 ﻿module ``Fail``
 
 open Xunit
-open FsUnit.Xunit.Typed
-open Matchers
 
 [<Fact>]
 let ``fails when successful``() =
@@ -31,4 +29,4 @@ let ``target is called``() =
     let called = ref false
     fun () -> called := true; failwith "exit"
     |> should fail ()
-    Assert.True(!called, "To be asserted function must be called")
+    Assert.True(!called, "To be asserted function is called")
