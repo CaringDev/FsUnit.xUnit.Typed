@@ -13,7 +13,7 @@ type Result =
 
 let private checker = FSharpChecker.Create(keepAllBackgroundResolutions = true, msbuildEnabled = false)
 let private autoOpen = [ typedefof<Result>.Assembly.Location ]
-let whiteSpace = Regex(@"\s+", RegexOptions.Compiled)
+let private whiteSpace = Regex(@"\s+", RegexOptions.Compiled)
 
 let private simplify =
     Seq.map (fun (e : FSharpErrorInfo) -> e.Message.Trim())
@@ -37,6 +37,7 @@ let compile src =
     }
 
 let shouldNotCompileBecause msg src =
+    let src = "open FsUnit.Xunit.Typed\n\n" + src
     let result = compile src |> Async.RunSynchronously
     match result with
     | CompileError [e] when msg = e -> ()

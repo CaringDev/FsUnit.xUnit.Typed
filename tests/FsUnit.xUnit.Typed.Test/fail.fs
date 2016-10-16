@@ -1,5 +1,6 @@
-﻿module ``Fail``
+﻿module Fail
 
+open FsUnit.Xunit.Typed
 open Xunit
 
 [<Fact>]
