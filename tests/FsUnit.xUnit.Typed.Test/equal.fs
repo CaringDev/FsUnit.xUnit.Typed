@@ -1,7 +1,8 @@
-﻿module ``Equal``
+﻿module Equal
 
-open Xunit
 open CompilerHelper
+open FsUnit.Xunit.Typed
+open Xunit
 
 [<Fact>]
 let ``succeeds when value equal``() =
@@ -24,6 +25,6 @@ let ``fails when reference non-equal``() =
 
 module is =
     [<Fact>]
-    let ``typesafe``() =
+    let typesafe() =
         "1 |> should equal 1.0"
         |> shouldNotCompileBecause "This expression was expected to have type 'int' but here has type 'float'"

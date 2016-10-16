@@ -1,7 +1,8 @@
 ﻿module Null
 
-open Xunit
 open CompilerHelper
+open FsUnit.Xunit.Typed
+open Xunit
 
 [<Fact>]
 let ``succeeds when null``() =
@@ -23,11 +24,11 @@ let ``fails when null not null``() =
 
 module is =
     [<Fact>]
-    let ``typesafe``() =
+    let typesafe() =
         "null |> should be 1.0"
         |> shouldNotCompileBecause "This expression was expected to have type 'NHamcrest.IMatcher<'a>' but here has type 'float'"
 
-module ``equal`` =
+module equal =
 
     [<Fact>]
     let ``succeeds when null``() =
@@ -49,6 +50,6 @@ module ``equal`` =
 
     module is =
         [<Fact>]
-        let ``typesafe``() =
+        let typesafe() =
             "null |> should (not' equal) 1.0"
             |> shouldNotCompileBecause "The type 'float' does not have 'null' as a proper value"

@@ -1,5 +1,5 @@
 ﻿[<AutoOpen>]
-module FsUnit.Xunit.Typed
+module FsUnit.Xunit.Typed.Core
 
 open NHamcrest
 open NHamcrest.Core
@@ -10,6 +10,7 @@ type MatchException(expected, actual, userMessage) =
     inherit AssertActualExpectedException(expected, actual, userMessage)
 
 let be = id
+let have = id
 
 let inline should (f : 'e -> IMatcher<'a>) expected actual =
     let matcher =
