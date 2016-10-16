@@ -4,8 +4,8 @@ open System.Reflection
 open System.Runtime.InteropServices
 
 [<assembly: AssemblyTitle("FsUnit.xUnit.Typed")>]
-[<assembly: AssemblyDescription("Painless xUnit testing in F#")>]
-[<assembly: AssemblyCompany("Schweizer Informatik")>]
+[<assembly: AssemblyDescription("Painless, strongly-typed xUnit testing in F#")>]
+[<assembly: AssemblyCompany("Raphael Schweizer")>]
 [<assembly: AssemblyProduct("FsUnit.xUnit.Typed")>]
 [<assembly: AssemblyCopyright("Copyright © Raphael Schweizer (CaringDev) 2016")>]
 
@@ -13,6 +13,7 @@ open System.Runtime.InteropServices
 
 [<assembly: AssemblyVersion("0.0.1.0")>]
 [<assembly: AssemblyFileVersion("0.0.1.0")>]
+[<assembly: AssemblyInformationalVersion("0.0.1.0-alpha")>]
 
 do
     ()

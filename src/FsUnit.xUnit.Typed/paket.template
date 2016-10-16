@@ -1,0 +1,4 @@
+﻿type project
+
+projectUrl https://github.com/rasch/FsUnit.xUnit.Typed
+tags F# fsharp xUnit xUnit2 FsUnit testing

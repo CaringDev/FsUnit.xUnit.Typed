@@ -54,6 +54,7 @@
     <Compile Include="Matchers.fs" />
     <Compile Include="FsUnit.xUnit.Typed.fs" />
     <None Include="paket.references" />
+    <None Include="paket.template" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
