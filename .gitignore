@@ -1,5 +1,7 @@
 .vs/
 **/packages/*
+.build/
+.fake/
 .paket/paket.exe
 bin/
 obj/

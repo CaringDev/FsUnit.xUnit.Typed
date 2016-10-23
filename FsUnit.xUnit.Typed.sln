@@ -13,6 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{BA514A
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.xUnit.Typed.Test", "tests\FsUnit.xUnit.Typed.Test\FsUnit.xUnit.Typed.Test.fsproj", "{6A0DA5D9-20BC-4EE5-A0F6-5B4B34204868}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{5D2E4968-0931-478C-B807-1D0B14207C0E}"
+	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+		build.fsx = build.fsx
+		release.cmd = release.cmd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
