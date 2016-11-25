@@ -34,6 +34,12 @@ let failWith<'exn when 'exn :> exn> () =
         (sprintf "exception of type %A" typeof<'exn>.FullName)
         (fun _ -> sprintf "got %s" exnType)
 
+let greaterThan value =
+    matcher ((<) value) (sprintf "to be strictly greater than %A" value) (sprintf "%A")
+
+let greaterOrEqualThan value =
+    matcher ((<=) value) (sprintf "to be greater or equal than %A" value) (sprintf "%A")
+
 let inline length l =
     let getLength (a : ^a) = (^a : (member Length : int) a)
     matcher (fun a -> getLength a = l) (sprintf "length to be %i" l) (getLength >> sprintf "%i")
@@ -42,3 +48,9 @@ let not' (m : 'e -> IMatcher<'a>) e =
     match m e with
     | null -> Is.NotNull<_>() : IMatcher<_>
     | r -> Is.Not<'a>(r) :> IMatcher<_>
+
+let smallerThan value =
+    matcher ((>) value) (sprintf "to be strictly greater than %A" value) (sprintf "%A")
+
+let smallerOrEqualThan value =
+    matcher ((>=) value) (sprintf "to be greater or equal than %A" value) (sprintf "%A")

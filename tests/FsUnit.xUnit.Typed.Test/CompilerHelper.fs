@@ -1,8 +1,10 @@
 ﻿module CompilerHelper
 
+open FSharp.Compiler.CodeDom
 open Microsoft.FSharp.Compiler
 open Microsoft.FSharp.Compiler.SourceCodeServices
 open System
+open System.CodeDom
 open System.Reflection
 open System.Text.RegularExpressions
 
@@ -42,4 +44,10 @@ let shouldNotCompileBecause msg src =
     match result with
     | CompileError [e] when msg = e -> ()
     | Ok _ -> failwith "Compiled"
-    | r -> failwithf "Did not compile due to wrong reason(s): %A" r
+    | r -> failwithf "Did not compile due to wrong reason(s): %A, expected %s" r msg
+
+let wrongType<'expected, 'actual> =
+    use provider = new FSharpCodeProvider()
+    let expected = provider.GetTypeOutput(CodeTypeReference(typeof<'expected>))
+    let actual = provider.GetTypeOutput(CodeTypeReference(typeof<'actual>))
+    sprintf "This expression was expected to have type '%s' but here has type '%s'" expected actual
