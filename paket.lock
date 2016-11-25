@@ -1,7 +1,9 @@
+REDIRECTS: ON
 FRAMEWORK: NET461
 NUGET
   remote: http://api.nuget.org/v3/index.json
     FAKE (4.41.8)
+    FSharp.Compiler.CodeDom (1.0.0.1)
     FSharp.Compiler.Service (8.0)
       System.Collections.Immutable (>= 1.2)
       System.Reflection.Metadata (>= 1.4.1-beta-24227-04)

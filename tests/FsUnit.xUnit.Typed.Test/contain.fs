@@ -29,4 +29,4 @@ module is =
     [<Fact>]
     let typesafe() =
         "[ 1 ] |> should contain 'a'"
-        |> shouldNotCompileBecause "This expression was expected to have type 'int' but here has type 'char'"
+        |> shouldNotCompileBecause wrongType<int, char>

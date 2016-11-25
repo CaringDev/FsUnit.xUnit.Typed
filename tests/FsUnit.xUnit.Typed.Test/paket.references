@@ -1,3 +1,4 @@
 xunit
 NHamcrest
 FSharp.Compiler.Service
+FSharp.Compiler.CodeDom
