@@ -15,9 +15,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsUnit.xUnit.Typed.Test", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{5D2E4968-0931-478C-B807-1D0B14207C0E}"
 	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
 		build.cmd = build.cmd
 		build.fsx = build.fsx
-		release.cmd = release.cmd
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global

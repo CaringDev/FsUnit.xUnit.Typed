@@ -3,10 +3,10 @@ framework: auto-detect
 redirects: on
 
 nuget Fake
-nuget FSharp.Compiler.CodeDom ~> 1
-nuget FSharp.Compiler.Service ~> 8
-nuget NHamcrest ~> 1
+nuget FSharp.Compiler.CodeDom
+nuget FSharp.Compiler.Service
+nuget NHamcrest
 nuget SourceLink
 nuget SourceLink.Fake
-nuget xunit ~> 2
-nuget xunit.runner.console ~> 2
+nuget xunit
+nuget xunit.runner.console
