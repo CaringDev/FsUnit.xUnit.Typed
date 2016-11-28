@@ -25,4 +25,4 @@ module is =
     [<Fact>]
     let typesafe() =
         "System.Collections.Generic.List() |> should (have length) 0"
-        |> shouldNotCompileBecause "The type 'System.Collections.Generic.List<'a>' does not support the operator 'get_Length'"
+        |> shouldNotTypeCheckBecause "The type 'System.Collections.Generic.List<'a>' does not support the operator 'get_Length'"

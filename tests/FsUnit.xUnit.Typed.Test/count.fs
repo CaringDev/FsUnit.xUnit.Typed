@@ -18,4 +18,4 @@ module is =
     [<Fact>]
     let typesafe() =
         "[ ] |> should (have count) 0"
-        |> shouldNotCompileBecause "The type ''a list' does not support the operator 'get_Count'"
+        |> shouldNotTypeCheckBecause "The type ''a list' does not support the operator 'get_Count'"

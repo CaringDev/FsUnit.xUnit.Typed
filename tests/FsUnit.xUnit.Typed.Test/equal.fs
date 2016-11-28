@@ -27,4 +27,4 @@ module is =
     [<Fact>]
     let typesafe() =
         "1 |> should equal 1.0"
-        |> shouldNotCompileBecause wrongType<int, float>
+        |> shouldNotTypeCheckBecause wrongType<int, float>
