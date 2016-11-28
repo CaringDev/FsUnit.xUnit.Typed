@@ -1,4 +1,3 @@
-REDIRECTS: ON
 FRAMEWORK: NET461
 NUGET
   remote: http://api.nuget.org/v3/index.json
