@@ -26,4 +26,4 @@ module is =
     [<Fact>]
     let typesafe() =
         "1.0 |> should (be greaterThan) 0"
-        |> shouldNotCompileBecause wrongType<float, int>
+        |> shouldNotTypeCheckBecause wrongType<float, int>

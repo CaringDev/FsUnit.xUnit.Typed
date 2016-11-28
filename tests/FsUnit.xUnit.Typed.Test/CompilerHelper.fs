@@ -1,50 +1,55 @@
 ﻿module CompilerHelper
 
 open FSharp.Compiler.CodeDom
+open FsUnit.Xunit.Typed
 open Microsoft.FSharp.Compiler
 open Microsoft.FSharp.Compiler.SourceCodeServices
+open NHamcrest
 open System
 open System.CodeDom
-open System.Reflection
 open System.Text.RegularExpressions
 
-type Result =
-| Ok of Assembly
-| ParseError of string list
-| CompileError of string list
+type private Result =
+| Ok
+| CheckError of string list
+| Aborted
 
 let private checker = FSharpChecker.Create(keepAllBackgroundResolutions = true, msbuildEnabled = false)
-let private autoOpen = [ typedefof<Result>.Assembly.Location ]
 let private whiteSpace = Regex(@"\s+", RegexOptions.Compiled)
+let private preamble =
+    [ typeof<MatchException>; typeof<IMatcher<_>> ]
+    |> List.map (fun t -> sprintf "#r \"%s\"\n" <| t.Assembly.Location.Replace('\\', '/'))
+    |> String.Concat
+    |> sprintf "%s\nopen FsUnit.Xunit.Typed\n\n"
 
 let private simplify =
     Seq.map (fun (e : FSharpErrorInfo) -> e.Message.Trim())
     >> Seq.map (fun e -> whiteSpace.Replace(e, " "))
     >> List.ofSeq
 
-let compile src =
-    let fn, dll =
-        let guid = Guid.NewGuid().ToString()
-        sprintf "%s.fsx" guid, sprintf "%s.dll" guid
+let private check src =
+    let fn =
+        let guid = Guid.NewGuid().ToString("N")
+        sprintf "%s.fsx" guid
     async {
         let! projectOptions = checker.GetProjectOptionsFromScript(fn, src)
-        let! parseResults = checker.ParseFileInProject(fn, src, projectOptions)
+        let! _, checkResults = checker.ParseAndCheckFileInProject(fn, 0, src, projectOptions)
         return
-            match parseResults.ParseTree with
-            | Some tree ->
-                match checker.CompileToDynamicAssembly([tree], dll, autoOpen, None) with
-                | [||], 0, Some assembly -> Ok assembly
-                | err, _, _ -> err |> simplify |> CompileError
-            | None -> parseResults.Errors |> simplify |> ParseError
+            match checkResults with
+            | FSharpCheckFileAnswer.Aborted -> Aborted
+            | FSharpCheckFileAnswer.Succeeded res when res.Errors |> Array.isEmpty -> Ok
+            | FSharpCheckFileAnswer.Succeeded res -> simplify res.Errors |> CheckError
     }
 
-let shouldNotCompileBecause msg src =
-    let src = "open FsUnit.Xunit.Typed\n\n" + src
-    let result = compile src |> Async.RunSynchronously
-    match result with
-    | CompileError [e] when msg = e -> ()
-    | Ok _ -> failwith "Compiled"
-    | r -> failwithf "Did not compile due to wrong reason(s): %A, expected %s" r msg
+let shouldNotTypeCheckBecause msg src =
+    async {
+        let! result = check (preamble + src)
+        match result with
+        | CheckError [e] when msg = e -> ()
+        | Ok -> failwith "Type checked"
+        | Aborted -> failwith "Aborted"
+        | CheckError r -> failwithf "Did not type check due to wrong reason(s): \"%A\", expected \"%s\"" r msg
+    } |> Async.StartAsTask
 
 let wrongType<'expected, 'actual> =
     use provider = new FSharpCodeProvider()
