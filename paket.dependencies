@@ -1,6 +1,5 @@
 source https://api.nuget.org/v3/index.json
-framework: auto-detect
-redirects: on
+framework: net461
 
 nuget Fake
 nuget FSharp.Compiler.CodeDom
