@@ -33,7 +33,7 @@ Target "Test" (fun _ ->
             XmlOutputPath = buildDir </> "TestResults.xml" |> Some }))
 
 Target "SourceLink" (fun _ ->
-    let baseUrl = sprintf "https://raw.githubusercontent.com/rasch/%s/{0}/%%var2%%" projectName
+    let baseUrl = sprintf "https://raw.githubusercontent.com/CaringDev/%s/{0}/%%var2%%" projectName
     !! "src/**/*.??proj"
     |> Seq.iter (fun projFile ->
         let proj = VsProj.LoadRelease projFile
@@ -45,8 +45,7 @@ Target "Release" (fun _ ->
     Paket.Pack (fun p ->
         { p with
             BuildPlatform = "AnyCPU"
-            OutputPath = buildDir </> "nugets"
-            Symbols = true }))
+            OutputPath = buildDir </> "nugets" }))
 
 "Clean" ==> "Build"
 "Build" ==> "Test"
