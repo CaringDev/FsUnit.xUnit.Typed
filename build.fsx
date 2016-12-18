@@ -47,9 +47,10 @@ Target "Release" (fun _ ->
             BuildPlatform = "AnyCPU"
             OutputPath = buildDir </> "nugets" }))
 
-"Clean" ==> "Build"
 "Build" ==> "Test"
+"Clean" ==> "SourceLink"
 "Build" ==> "SourceLink"
+"Clean" ?=> "Build"
 "Test" ==> "Release"
 "SourceLink" ==> "Release"
 
