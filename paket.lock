@@ -1,7 +1,7 @@
 FRAMEWORK: NET461
 NUGET
-  remote: http://api.nuget.org/v3/index.json
-    FAKE (4.45.3)
+  remote: https://api.nuget.org/v3/index.json
+    FAKE (4.47)
     FSharp.Compiler.CodeDom (1.0.0.1)
     FSharp.Compiler.Service (8.0)
       System.Collections.Immutable (>= 1.2)

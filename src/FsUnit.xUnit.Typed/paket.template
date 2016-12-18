@@ -1,4 +1,5 @@
 ﻿type project
 licenseUrl https://opensource.org/licenses/MIT
-projectUrl https://github.com/rasch/FsUnit.xUnit.Typed
+projectUrl https://github.com/CaringDev/FsUnit.xUnit.Typed
 tags F# fsharp xUnit xUnit2 FsUnit testing
+include-pdbs true
