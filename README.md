@@ -1,6 +1,6 @@
 # FsUnit.xUnit.Typed
 
-[![Build status](https://ci.appveyor.com/api/projects/status/q99p965qj63xt962?svg=true)](https://ci.appveyor.com/project/rasch/fsunit-xunit-typed)
+[![Build status](https://ci.appveyor.com/api/projects/status/ffv5lwhfngiuulh0?svg=true)](https://ci.appveyor.com/project/CaringDev/fsunit-xunit-typed)
 
 - a library for [xUnit](https://xunit.github.io/) testing in idiomatic [F#](http://fsharp.org/)
     - functional
