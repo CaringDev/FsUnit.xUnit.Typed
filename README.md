@@ -1,6 +1,8 @@
 # FsUnit.xUnit.Typed
 
-[![Build status](https://ci.appveyor.com/api/projects/status/ffv5lwhfngiuulh0?svg=true)](https://ci.appveyor.com/project/CaringDev/fsunit-xunit-typed)
+[![NuGet badge](https://buildstats.info/nuget/FsUnit.xUnit.Typed?includePreReleases=true)](https://www.nuget.org/packages/FsUnit.xUnit.Typed)  
+[![Build status](https://ci.appveyor.com/api/projects/status/ffv5lwhfngiuulh0?svg=true)](https://ci.appveyor.com/project/CaringDev/fsunit-xunit-typed/build/tests)  
+[![Build history](https://buildstats.info/appveyor/chart/CaringDev/FsUnit-xUnit-Typed?includeBuildsFromPullRequest=false)](https://ci.appveyor.com/project/CaringDev/fsunit-xunit-typed/history)
 
 - a library for [xUnit](https://xunit.github.io/) testing in idiomatic [F#](http://fsharp.org/)
     - functional
