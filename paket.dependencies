@@ -1,11 +1,15 @@
 source https://api.nuget.org/v3/index.json
 framework: net461
 
-nuget Fake
+nuget xunit
+nuget NHamcrest
 nuget FSharp.Compiler.CodeDom
 nuget FSharp.Compiler.Service
-nuget NHamcrest
-nuget SourceLink
-nuget SourceLink.Fake
-nuget xunit
-nuget xunit.runner.console
+
+group .build
+	source https://api.nuget.org/v3/index.json
+	framework: net461
+	nuget Fake
+	nuget SourceLink
+	nuget SourceLink.Fake
+	nuget xunit.runner.console
