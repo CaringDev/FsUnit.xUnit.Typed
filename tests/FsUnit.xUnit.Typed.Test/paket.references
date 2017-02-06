@@ -1,4 +1,6 @@
 xunit
 NHamcrest
-FSharp.Compiler.Service
-FSharp.Compiler.CodeDom
+
+group .test
+	FSharp.Compiler.Service
+	FSharp.Compiler.CodeDom
