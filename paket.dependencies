@@ -1,19 +1,20 @@
 source https://api.nuget.org/v3/index.json
-framework: net461
+framework: net462
 
-nuget xunit
+nuget xunit ~> 2.2 prerelease
+nuget xunit.abstractions ~> 2
 nuget NHamcrest
 
 group .build
 	source https://api.nuget.org/v3/index.json
-	framework: net461
+	framework: net462
 	nuget Fake
 	nuget SourceLink
 	nuget SourceLink.Fake
-	nuget xunit.runner.console
+	nuget xunit.runner.console ~> 2.2 prerelease
 
 group .test
 	source https://api.nuget.org/v3/index.json
-	framework: net461
+	framework: net462
 	nuget FSharp.Compiler.CodeDom
 	nuget FSharp.Compiler.Service

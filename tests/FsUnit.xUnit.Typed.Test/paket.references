@@ -1,4 +1,5 @@
 xunit
+xunit.abstractions
 NHamcrest
 
 group .test
