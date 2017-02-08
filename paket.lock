@@ -1,31 +1,29 @@
-FRAMEWORK: NET461
+FRAMEWORK: NET462
 NUGET
   remote: https://api.nuget.org/v3/index.json
     NHamcrest (1.2.1)
-    xunit (2.1)
-      xunit.assert (2.1)
-      xunit.core (2.1)
-    xunit.abstractions (2.0)
-    xunit.assert (2.1)
-    xunit.core (2.1)
-      xunit.extensibility.core (2.1)
-      xunit.extensibility.execution (2.1)
-    xunit.extensibility.core (2.1)
-      xunit.abstractions (2.0)
-    xunit.extensibility.execution (2.1)
-      xunit.extensibility.core (2.1)
+    xunit (2.2.0-beta5-build3474)
+      xunit.assert (2.2.0-beta5-build3474)
+      xunit.core (2.2.0-beta5-build3474)
+    xunit.abstractions (2.0.1)
+    xunit.assert (2.2.0-beta5-build3474)
+    xunit.core (2.2.0-beta5-build3474)
+      xunit.extensibility.core (2.2.0-beta5-build3474)
+      xunit.extensibility.execution (2.2.0-beta5-build3474)
+    xunit.extensibility.core (2.2.0-beta5-build3474)
+    xunit.extensibility.execution (2.2.0-beta5-build3474)
 
 GROUP .build
-FRAMEWORK: NET461
+FRAMEWORK: NET462
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    FAKE (4.48)
+    FAKE (4.50)
     SourceLink (1.1)
     SourceLink.Fake (1.1)
-    xunit.runner.console (2.1)
+    xunit.runner.console (2.2.0-beta5-build3474)
 
 GROUP .test
-FRAMEWORK: NET461
+FRAMEWORK: NET462
 NUGET
   remote: https://api.nuget.org/v3/index.json
     FSharp.Compiler.CodeDom (1.0.0.1)
