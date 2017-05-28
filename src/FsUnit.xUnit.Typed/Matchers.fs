@@ -19,7 +19,7 @@ let inline count c =
     matcher (fun a -> getCount a = c) (sprintf "count to be %i" c) (getCount >> sprintf "%i")
 
 let inline equal expected =
-    matcher ((=) expected) (string expected) (sprintf "was %A")
+    matcher ((=) expected) (sprintf "%A" expected) (sprintf "%A")
 
 let fail () =
     matcher

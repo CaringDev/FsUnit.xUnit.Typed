@@ -21,7 +21,17 @@ let ``fails when value non-equal``() =
 [<Fact>]
 let ``fails when reference non-equal``() =
     Assert.Throws<MatchException>(fun () ->
-        obj() |> should equal (obj()))
+        obj() |> should equal <| obj())
+
+type Foo = { bar : string }
+
+[<Fact>]
+let ``leverages F# print format``() =
+    let actual = { bar = "baz" }
+    let expected = { bar = "BAZ" }
+    let exn = Assert.Throws<MatchException>(fun () ->
+        actual |> should equal expected)
+    Assert.EndsWith(sprintf "Expected: %A\r\nActual:   %A" expected actual, exn.Message)
 
 module is =
     [<Fact>]
