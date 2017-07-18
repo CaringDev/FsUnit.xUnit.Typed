@@ -29,7 +29,9 @@ let private simplify =
 
 let private check src =
     let fn =
-        let guid = Guid.NewGuid().ToString("N")
+        let guid =
+            let guid = Guid.NewGuid()
+            guid.ToString("N")
         sprintf "%s.fsx" guid
     async {
         let! projectOptions, _ = checker.GetProjectOptionsFromScript(fn, src)
