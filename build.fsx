@@ -25,6 +25,7 @@ Target "Build" (fun _ ->
     run "Build")
 
 Target "Test" (fun _ ->
+    CreateDir ".build"
     !! "tests/**/bin/Release/*Test.dll"
     |> xUnit2 (fun p ->
         { p with
