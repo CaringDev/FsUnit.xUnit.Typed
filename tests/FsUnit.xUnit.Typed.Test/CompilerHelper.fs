@@ -32,7 +32,7 @@ let private check src =
         let guid = Guid.NewGuid().ToString("N")
         sprintf "%s.fsx" guid
     async {
-        let! projectOptions = checker.GetProjectOptionsFromScript(fn, src)
+        let! projectOptions, _ = checker.GetProjectOptionsFromScript(fn, src)
         let! _, checkResults = checker.ParseAndCheckFileInProject(fn, 0, src, projectOptions)
         return
             match checkResults with
