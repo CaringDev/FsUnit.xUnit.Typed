@@ -30,7 +30,7 @@ Target "Test" (fun _ ->
     |> xUnit2 (fun p ->
         { p with
             Parallel = ParallelMode.All
-            ToolPath = "packages/.build/xunit.runner.console/tools/xunit.console.exe"
+            ToolPath = "packages/.build/xunit.runner.console/tools/net452/xunit.console.exe"
             XmlOutputPath = buildDir </> "TestResults.xml" |> Some }))
 
 Target "SourceLink" (fun _ ->

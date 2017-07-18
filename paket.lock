@@ -1,29 +1,33 @@
-FRAMEWORK: NET462
+RESTRICTION: == net462
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    NHamcrest (1.2.1)
-    xunit (2.2.0-beta5-build3474)
-      xunit.assert (2.2.0-beta5-build3474)
-      xunit.core (2.2.0-beta5-build3474)
+    NHamcrest (2.0.1)
+    xunit (2.3.0-beta3-build3705)
+      xunit.analyzers (>= 0.3)
+      xunit.assert (2.3.0-beta3-build3705)
+      xunit.core (2.3.0-beta3-build3705)
     xunit.abstractions (2.0.1)
-    xunit.assert (2.2.0-beta5-build3474)
-    xunit.core (2.2.0-beta5-build3474)
-      xunit.extensibility.core (2.2.0-beta5-build3474)
-      xunit.extensibility.execution (2.2.0-beta5-build3474)
-    xunit.extensibility.core (2.2.0-beta5-build3474)
-    xunit.extensibility.execution (2.2.0-beta5-build3474)
+    xunit.analyzers (0.5)
+    xunit.assert (2.3.0-beta3-build3705)
+    xunit.core (2.3.0-beta3-build3705)
+      xunit.extensibility.core (2.3.0-beta3-build3705)
+      xunit.extensibility.execution (2.3.0-beta3-build3705)
+    xunit.extensibility.core (2.3.0-beta3-build3705)
+      xunit.abstractions (>= 2.0.1)
+    xunit.extensibility.execution (2.3.0-beta3-build3705)
+      xunit.extensibility.core (2.3.0-beta3-build3705)
 
 GROUP .build
-FRAMEWORK: NET462
+RESTRICTION: == net462
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    FAKE (4.50)
+    FAKE (4.62.5)
     SourceLink (1.1)
     SourceLink.Fake (1.1)
-    xunit.runner.console (2.2.0-beta5-build3474)
+    xunit.runner.console (2.3.0-beta3-build3705)
 
 GROUP .test
-FRAMEWORK: NET462
+RESTRICTION: == net462
 NUGET
   remote: https://api.nuget.org/v3/index.json
     FSharp.Compiler.CodeDom (1.0.0.1)
