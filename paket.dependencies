@@ -1,7 +1,7 @@
 source https://api.nuget.org/v3/index.json
 framework: net462
 
-nuget xunit ~> 2.2 prerelease
+nuget xunit ~> 2.3 prerelease
 nuget xunit.abstractions ~> 2
 nuget NHamcrest
 
@@ -11,7 +11,7 @@ group .build
 	nuget Fake
 	nuget SourceLink
 	nuget SourceLink.Fake
-	nuget xunit.runner.console ~> 2.2 prerelease
+	nuget xunit.runner.console ~> 2.3 prerelease
 
 group .test
 	source https://api.nuget.org/v3/index.json
