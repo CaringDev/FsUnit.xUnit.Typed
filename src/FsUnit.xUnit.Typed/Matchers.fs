@@ -28,11 +28,11 @@ let fail () =
         (fun _ -> "no exception raised")
 
 let failWith<'exn when 'exn :> exn> () =
-    let mutable exnType = ""
+    let exnType = ref ""
     matcher
-        (fun i -> try i(); false with :? 'exn -> true | e -> exnType <- e.GetType().FullName; false)
+        (fun i -> try i(); false with :? 'exn -> true | e -> exnType := e.GetType().FullName; false)
         (sprintf "exception of type %A" typeof<'exn>.FullName)
-        (fun _ -> sprintf "got %s" exnType)
+        (fun _ -> sprintf "got %s" !exnType)
 
 let greaterThan value =
     matcher ((<) value) (sprintf "to be strictly greater than %A" value) (sprintf "%A")
