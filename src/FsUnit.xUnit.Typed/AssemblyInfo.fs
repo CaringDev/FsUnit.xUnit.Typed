@@ -7,6 +7,7 @@ open System.Reflection
 [<assembly: AssemblyDescription("Painless, strongly-typed xUnit testing in F#")>]
 [<assembly: AssemblyName("FsUnit.xUnit.Typed")>]
 [<assembly: AssemblyProduct("FsUnit.xUnit.Typed")>]
+[<assembly: AssemblyTitle("FsUnit.xUnit.Typed")>]
 [<assembly: AssemblyCompany("Raphael Schweizer")>]
 
 do()
