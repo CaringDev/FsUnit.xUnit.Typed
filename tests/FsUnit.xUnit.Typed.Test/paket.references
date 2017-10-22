@@ -1,7 +1,4 @@
+FSharp.Compiler.CodeDom
+FSharp.Compiler.Service
 xunit
-xunit.abstractions
-NHamcrest
-
-group .test
-	FSharp.Compiler.Service
-	FSharp.Compiler.CodeDom
+xunit.runner.visualstudio

@@ -1,20 +1,11 @@
 source https://api.nuget.org/v3/index.json
-framework: net462
+framework: auto-detect
+redirects: off
+storage: none
 
-nuget xunit ~> 2.3 prerelease
-nuget xunit.abstractions ~> 2
-nuget NHamcrest
-
-group .build
-	source https://api.nuget.org/v3/index.json
-	framework: net462
-	nuget Fake
-	nuget SourceLink
-	nuget SourceLink.Fake
-	nuget xunit.runner.console ~> 2.3 prerelease
-
-group .test
-	source https://api.nuget.org/v3/index.json
-	framework: net462
-	nuget FSharp.Compiler.CodeDom
-	nuget FSharp.Compiler.Service
+nuget FSharp.Compiler.CodeDom
+nuget FSharp.Compiler.Service
+nuget NHamcrest.XUnit ~> 2.0
+nuget SourceLink.Create.CommandLine
+nuget xunit
+nuget xunit.runner.visualstudio

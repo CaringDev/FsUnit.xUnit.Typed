@@ -1,5 +1,4 @@
-version: 0.2.1.{build}.{branch}-alpha
-image: Visual Studio 2017
+version: 0.4.0.{build}.{branch}-beta
 pull_requests:
   do_not_increment_build_number: true
 clone_depth: 3
@@ -8,8 +7,10 @@ cache:
   - '%UserProfile%\.nuget\packages -> paket.lock'
 test: off
 build_script:
-- cmd: build.cmd Release
+- cmd: build.cmd
 artifacts:
   - path: '.build\nugets\*.nupkg'
     name: nuget
 deploy: off
+init:
+  - git config --global core.autocrlf input

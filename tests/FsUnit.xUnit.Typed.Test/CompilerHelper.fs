@@ -2,7 +2,6 @@
 
 open FSharp.Compiler.CodeDom
 open FsUnit.Xunit.Typed
-open Microsoft.FSharp.Compiler
 open Microsoft.FSharp.Compiler.SourceCodeServices
 open NHamcrest
 open System
@@ -14,7 +13,7 @@ type private Result =
 | CheckError of string list
 | Aborted
 
-let private checker = FSharpChecker.Create(keepAllBackgroundResolutions = true, msbuildEnabled = false)
+let private checker = FSharpChecker.Create(keepAllBackgroundResolutions = true)
 let private whiteSpace = Regex(@"\s+", RegexOptions.Compiled)
 let private preamble =
     [ typeof<MatchException>; typeof<IMatcher<_>> ]
@@ -29,10 +28,8 @@ let private simplify =
 
 let private check src =
     let fn =
-        let guid =
-            let guid = Guid.NewGuid()
-            guid.ToString("N")
-        sprintf "%s.fsx" guid
+        let guid = Guid.NewGuid()
+        sprintf "%s.fsx" <| guid.ToString("N")
     async {
         let! projectOptions, _ = checker.GetProjectOptionsFromScript(fn, src)
         let! _, checkResults = checker.ParseAndCheckFileInProject(fn, 0, src, projectOptions)
