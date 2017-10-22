@@ -1,19 +1,12 @@
-﻿namespace FsUnit.xUnit.Typed.AssemblyInfo
+﻿namespace FsUnit.Xunit.Typed.Info
 
 open System.Reflection
-open System.Runtime.InteropServices
 
-[<assembly: AssemblyTitle("FsUnit.xUnit.Typed")>]
-[<assembly: AssemblyDescription("Painless, strongly-typed xUnit testing in F#")>]
-[<assembly: AssemblyCompany("Raphael Schweizer")>]
-[<assembly: AssemblyProduct("FsUnit.xUnit.Typed")>]
+[<assembly: AssemblyInformationalVersion("0.4.0-beta")>]
 [<assembly: AssemblyCopyright("Copyright © Raphael Schweizer (CaringDev) 2016")>]
+[<assembly: AssemblyDescription("Painless, strongly-typed xUnit testing in F#")>]
+[<assembly: AssemblyName("FsUnit.xUnit.Typed")>]
+[<assembly: AssemblyProduct("FsUnit.xUnit.Typed")>]
+[<assembly: AssemblyCompany("Raphael Schweizer")>]
 
-[<assembly: ComVisible(false)>]
-
-[<assembly: AssemblyVersion("0.2.1.0")>]
-[<assembly: AssemblyFileVersion("0.2.1.0")>]
-[<assembly: AssemblyInformationalVersion("0.2.1-alpha")>]
-
-do
-    ()
+do()
