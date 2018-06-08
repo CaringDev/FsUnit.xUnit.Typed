@@ -1,3 +1,4 @@
+dotnet-sourcelink
 FSharp.Core
 NHamcrest.XUnit
 SourceLink.Create.CommandLine
