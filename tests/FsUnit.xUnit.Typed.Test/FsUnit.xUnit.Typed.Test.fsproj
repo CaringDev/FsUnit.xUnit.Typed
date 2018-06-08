@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
+    <TargetFramework>net471</TargetFramework>
     <WarningLevel>5</WarningLevel>
     <OtherFlags>--warnon:3180,1182</OtherFlags>
   </PropertyGroup>
