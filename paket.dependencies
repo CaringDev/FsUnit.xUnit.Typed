@@ -1,10 +1,15 @@
+version 5.171.0
+
 source https://api.nuget.org/v3/index.json
 framework: auto-detect
 redirects: off
 storage: none
 
+clitool dotnet-sourcelink
+
 nuget FSharp.Compiler.CodeDom
-nuget FSharp.Compiler.Service
+nuget FSharp.Compiler.Service ~> 23
+nuget FSharp.Core lowest_matching: true
 nuget NHamcrest.XUnit ~> 2.0
 nuget SourceLink.Create.CommandLine
 nuget xunit
