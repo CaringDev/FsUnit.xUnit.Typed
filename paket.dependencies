@@ -5,8 +5,10 @@ framework: auto-detect
 redirects: off
 storage: none
 
+clitool dotnet-sourcelink
+
 nuget FSharp.Compiler.CodeDom
-nuget FSharp.Compiler.Service ~> 22
+nuget FSharp.Compiler.Service ~> 23
 nuget FSharp.Core lowest_matching: true
 nuget NHamcrest.XUnit ~> 2.0
 nuget SourceLink.Create.CommandLine
