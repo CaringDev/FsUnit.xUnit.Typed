@@ -4,5 +4,8 @@ authors Raphael Schweizer
 licenseUrl https://opensource.org/licenses/MIT
 tags F# fsharp xUnit xUnit2 FsUnit testing
 include-pdbs true
+dependencies
+  FSharp.Core ~> LOCKED:Minor
 excludeddependencies
   SourceLink.Create.CommandLine
+  dotnet-sourcelink
