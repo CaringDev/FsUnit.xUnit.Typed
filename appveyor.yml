@@ -1,7 +1,8 @@
 version: 0.4.1-beta-{branch}.{build}
+image: Visual Studio 2017
 pull_requests:
   do_not_increment_build_number: true
-clone_depth: 3
+clone_depth: 1
 cache:
   - '%LocalAppData%\NuGet\Cache -> paket.lock'
   - '%UserProfile%\.nuget\packages -> paket.lock'
