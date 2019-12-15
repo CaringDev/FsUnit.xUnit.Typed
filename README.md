@@ -5,8 +5,8 @@
 [![Build history](https://buildstats.info/appveyor/chart/CaringDev/FsUnit-xUnit-Typed?includeBuildsFromPullRequest=false&branch=master)](https://ci.appveyor.com/project/CaringDev/fsunit-xunit-typed/history)
 
 - a library for [xUnit](https://xunit.github.io/) testing in idiomatic [F#](http://fsharp.org/)
-    - functional
-    - *typesafe*
+  - functional
+  - *typesafe*
 - a non-endorsed, hard fork of and heavily inspired by [FsUnit.xUnit](http://fsprojects.github.io/FsUnit/)
 - supporting most needed functionality for xUnit
 

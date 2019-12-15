@@ -2,6 +2,7 @@
 **/packages/*
 .build/
 .fake/
+.ionide/
 bin/
 obj/
 /paket-files
