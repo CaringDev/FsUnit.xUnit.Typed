@@ -5,11 +5,11 @@ open NHamcrest
 open NHamcrest.Core
 
 let matcher m s f =
-    { new IMatcher<_> with
+    { new Matcher<_>() with
         member __.Matches i = m i
         member __.DescribeMismatch(i, md) = md.AppendText(f i) |> ignore
         member __.DescribeTo d = d.AppendText s |> ignore
-    }
+    } :> IMatcher<_>
 
 let contain value =
     matcher (Seq.contains value) (sprintf "to contain %A" value) (sprintf "%A")

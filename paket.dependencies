@@ -1,5 +1,3 @@
-version 5.241.2
-
 source https://api.nuget.org/v3/index.json
 framework: auto-detect
 redirects: off
@@ -10,7 +8,7 @@ clitool dotnet-sourcelink
 nuget FSharp.Compiler.CodeDom
 nuget FSharp.Compiler.Service ~> 23
 nuget FSharp.Core lowest_matching: true
-nuget NHamcrest.XUnit ~> 2.0
+nuget NHamcrest.XUnit
 nuget SourceLink.Create.CommandLine
 nuget xunit
 nuget xunit.runner.visualstudio

@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>FsUnit.xUnit.Typed</AssemblyName>
     <WarningLevel>5</WarningLevel>
-    <OtherFlags>--warnon:3180,1182</OtherFlags>
+    <OtherFlags>--warnon:1182,3180 --nowarn:3242</OtherFlags>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
