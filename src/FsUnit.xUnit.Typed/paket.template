@@ -1,10 +1,12 @@
 ﻿type project
 projectUrl https://github.com/CaringDev/FsUnit.xUnit.Typed
 authors Raphael Schweizer
-licenseExpression https://licenses.nuget.org/MIT
+licenseExpression MIT
+licenseUrl https://licenses.nuget.org/MIT
 tags F# fsharp xUnit xUnit2 FsUnit testing
 include-pdbs true
 dependencies
+  NHamcrest.XUnit ~> LOCKEDVERSION
   FSharp.Core ~> LOCKED:Minor
 excludeddependencies
   SourceLink.Create.CommandLine

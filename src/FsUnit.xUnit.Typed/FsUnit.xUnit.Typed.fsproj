@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>FsUnit.xUnit.Typed</AssemblyName>
+    <Version>0.4.2-beta</Version>
     <WarningLevel>5</WarningLevel>
     <OtherFlags>--warnon:1182,3180 --nowarn:3242</OtherFlags>
   </PropertyGroup>
